@@ -19,6 +19,12 @@ All the technical documentation (destinated to potential contributors) can be fo
 
 From an user point of view, all the documentation can be found right here: http://jachievement.sourceforge.net/, on JAchievement dedicated website.
 
+Downloads
+---------
+
+The JARs files can be found here: https://github.com/aneveux/jachievement/downloads (but this is not the official repository)
+And you can also get a zip file of the source code right here: https://github.com/aneveux/jachievement/zipball/master (once again, that's not the official repository)
+
 License
 -------
 
