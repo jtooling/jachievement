@@ -83,7 +83,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>JAchievement</finalName>
+		<finalName>jachievement-${project.version}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
