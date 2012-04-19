@@ -56,290 +56,294 @@ import javax.swing.ImageIcon;
 
 /**
  * Holds the achievement configuration.
+ * 
  * @author Paulo Roberto Massa Cereda
  * @version 2.0
  * @since 2.0
  */
 public class AchievementConfig {
-    
-    // lots of configurations
-    private Font titleFont;
-    private Font descriptionFont;
-    private Color titleColor;
-    private Color descriptionColor;
-    private ImageIcon backgroundImage;
-    private Color backgroundColor;
-    private ImageIcon icon;
-    private Color borderColor;
-    private int borderThickness;
-    private long inDuration;
-    private long outDuration;
-    private long duration;
-    
-    // distance from screen
-    private int distanceFromScreen;
-    
-    // the animation position
-    private AchievementPosition achievementPosition;
-    
-    // the screen size
-    private double screenWidth;
-    private double screenHeight;
-    
-    
-    // the window size
-    private int windowWidth;
-    private int windowHeight;
 
-    // Getters and setters
-    
-    protected void setWindowHeight(int windowHeight) {
-        this.windowHeight = windowHeight;
-    }
+	// lots of configurations
+	private Font titleFont;
+	private Font descriptionFont;
+	private Color titleColor;
+	private Color descriptionColor;
+	private ImageIcon backgroundImage;
+	private Color backgroundColor;
+	private ImageIcon icon;
+	private Color borderColor;
+	private int borderThickness;
+	private long inDuration;
+	private long outDuration;
+	private long duration;
 
-    protected void setWindowWidth(int windowWidth) {
-        this.windowWidth = windowWidth;
-    } 
+	// distance from screen
+	private int distanceFromScreen;
 
-    public void setAchievementPosition(AchievementPosition achievementPosition) {
-        this.achievementPosition = achievementPosition;
-    }
+	// the animation position
+	private AchievementPosition achievementPosition;
 
-    public void setDistanceFromScreen(int distanceFromScreen) {
-        this.distanceFromScreen = distanceFromScreen;
-    }   
+	// the screen size
+	private double screenWidth;
+	private double screenHeight;
 
-    public long getDuration() {
-        return duration;
-    }
+	// the window size
+	private int windowWidth;
+	private int windowHeight;
 
-    public void setDuration(long duration) {
-        this.duration = duration;
-    }
+	// Getters and setters
 
-    public long getInDuration() {
-        return inDuration;
-    }
+	protected void setWindowHeight(int windowHeight) {
+		this.windowHeight = windowHeight;
+	}
 
-    public void setInDuration(long inDuration) {
-        this.inDuration = inDuration;
-    }
+	protected void setWindowWidth(int windowWidth) {
+		this.windowWidth = windowWidth;
+	}
 
-    public long getOutDuration() {
-        return outDuration;
-    }
+	public void setAchievementPosition(AchievementPosition achievementPosition) {
+		this.achievementPosition = achievementPosition;
+	}
 
-    public void setOutDuration(long outDuration) {
-        this.outDuration = outDuration;
-    }
-    
-    /**
-     * Default constructor.
-     */
-    public AchievementConfig() {
-        
-        // set everything
-        titleFont = null;
-        descriptionFont = null;
-        titleColor = Color.BLACK;
-        descriptionColor = Color.BLACK;
-        backgroundColor = Color.WHITE;
-        backgroundImage = null;
-        icon = new ImageIcon(getClass().getResource("/net/sf/jachievement/images/placeholder.png"));
-        borderColor = Color.BLACK;
-        borderThickness = 2;
-        inDuration = 250;
-        outDuration = 250;
-        duration = 2000;
-        distanceFromScreen = 20;
-        achievementPosition = AchievementPosition.TOP_LEFT;
-        
-        {
-            // get the screen size
-            Rectangle rect = getScreenResolution();
-            
-            // set it
-            screenWidth = rect.getWidth();
-            screenHeight = rect.getHeight();
-        }
-        
-    }  
-    
-    // Getters and setters
-    
-    public Color getBackgroundColor() {
-        return backgroundColor;
-    }
+	public void setDistanceFromScreen(int distanceFromScreen) {
+		this.distanceFromScreen = distanceFromScreen;
+	}
 
-    public void setBackgroundColor(Color backgroundColor) {
-        this.backgroundColor = backgroundColor;
-    }
+	public long getDuration() {
+		return duration;
+	}
 
-    public ImageIcon getBackgroundImage() {
-        return backgroundImage;
-    }
+	public void setDuration(long duration) {
+		this.duration = duration;
+	}
 
-    public void setBackgroundImage(ImageIcon backgroundImage) {
-        this.backgroundImage = backgroundImage;
-    }
+	public long getInDuration() {
+		return inDuration;
+	}
 
-    public Color getBorderColor() {
-        return borderColor;
-    }
+	public void setInDuration(long inDuration) {
+		this.inDuration = inDuration;
+	}
 
-    public void setBorderColor(Color borderColor) {
-        this.borderColor = borderColor;
-    }
+	public long getOutDuration() {
+		return outDuration;
+	}
 
-    public int getBorderThickness() {
-        return borderThickness;
-    }
+	public void setOutDuration(long outDuration) {
+		this.outDuration = outDuration;
+	}
 
-    public void setBorderThickness(int borderThickness) {
-        this.borderThickness = borderThickness;
-    }
+	/**
+	 * Default constructor.
+	 */
+	public AchievementConfig() {
 
-    public Color getDescriptionColor() {
-        return descriptionColor;
-    }
+		// set everything
+		titleFont = null;
+		descriptionFont = null;
+		titleColor = Color.BLACK;
+		descriptionColor = Color.BLACK;
+		backgroundColor = Color.WHITE;
+		backgroundImage = null;
+		icon = new ImageIcon(getClass().getResource("/placeholder.png"));
+		borderColor = Color.BLACK;
+		borderThickness = 2;
+		inDuration = 250;
+		outDuration = 250;
+		duration = 2000;
+		distanceFromScreen = 20;
+		achievementPosition = AchievementPosition.TOP_LEFT;
 
-    public void setDescriptionColor(Color descriptionColor) {
-        this.descriptionColor = descriptionColor;
-    }
+		{
+			// get the screen size
+			Rectangle rect = getScreenResolution();
 
-    public Font getDescriptionFont() {
-        return descriptionFont;
-    }
+			// set it
+			screenWidth = rect.getWidth();
+			screenHeight = rect.getHeight();
+		}
 
-    public void setDescriptionFont(Font descriptionFont) {
-        this.descriptionFont = descriptionFont;
-    }
+	}
 
-    public ImageIcon getIcon() {
-        return icon;
-    }
+	// Getters and setters
 
-    public void setIcon(ImageIcon icon) {
-        this.icon = icon;
-    }
+	public Color getBackgroundColor() {
+		return backgroundColor;
+	}
 
-    public Color getTitleColor() {
-        return titleColor;
-    }
+	public void setBackgroundColor(Color backgroundColor) {
+		this.backgroundColor = backgroundColor;
+	}
 
-    public void setTitleColor(Color titleColor) {
-        this.titleColor = titleColor;
-    }
+	public ImageIcon getBackgroundImage() {
+		return backgroundImage;
+	}
 
-    public Font getTitleFont() {
-        return titleFont;
-    }
+	public void setBackgroundImage(ImageIcon backgroundImage) {
+		this.backgroundImage = backgroundImage;
+	}
 
-    public void setTitleFont(Font titleFont) {
-        this.titleFont = titleFont;
-    }
-    
-    /**
-     * Calculates the initial coordinates.
-     * @return A point.
-     */
-    protected Point getInitialCoordinates() {
-        
-        // the points
-        int positionX;
-        int positionY;
-        
-        // check the option
-        switch (achievementPosition) {
-            case BOTTOM_CENTER:
-                positionX = (int) ((screenWidth / 2) - (windowWidth / 2));
-                positionY = (int) (screenHeight + windowHeight);
-                break;
-            case TOP_CENTER:
-                positionX = (int) ((screenWidth / 2) - (windowWidth / 2));
-                positionY = (int) (-windowHeight);
-                break;
-            case TOP_LEFT:
-                positionX = (int) (-windowWidth);
-                positionY = (int) (-windowHeight);
-                break;
-            case BOTTOM_LEFT:
-                positionX = (int) (-windowWidth);
-                positionY = (int) (screenHeight);
-                break;
-            case TOP_RIGHT:
-                positionX = (int) (screenWidth);
-                positionY = (int) (-windowHeight);
-                break;
-            case BOTTOM_RIGHT:
-                positionX = (int) (screenWidth);
-                positionY = (int) (screenHeight + windowHeight);
-                break;
-            default:
-                    positionX = 0;
-                    positionY = 0;
-        }
-        
-        // return new point
-        return new Point(positionX, positionY);
-    }
-    
-    /**
-     * Calculates the final coordinates.
-     * @return The point.
-     */
-    protected Point getFinalCoordinates() {
-        
-        // the points
-        int positionX;
-        int positionY;
-        
-        // check the option
-        switch (achievementPosition) {
-            case BOTTOM_CENTER:
-                positionX = (int) ((screenWidth / 2) - (windowWidth / 2));
-                positionY = (int) ((screenHeight - windowHeight) - distanceFromScreen);
-                break;
-            case TOP_CENTER:
-                positionX = (int) ((screenWidth / 2) - (windowWidth / 2));
-                positionY = (int) (distanceFromScreen);
-                break;
-            case TOP_LEFT:
-                positionX = (int) (distanceFromScreen);
-                positionY = (int) (distanceFromScreen);
-                break;
-            case BOTTOM_LEFT:
-                positionX = (int) (distanceFromScreen);
-                positionY = (int) ((screenHeight - windowHeight) - distanceFromScreen);
-                break;
-            case TOP_RIGHT:
-                positionX = (int) ((screenWidth - windowWidth) - distanceFromScreen);
-                positionY = (int) (distanceFromScreen);
-                break;
-            case BOTTOM_RIGHT:
-                positionX = (int) ((screenWidth - windowWidth) - distanceFromScreen);
-                positionY = (int) ((screenHeight - windowHeight) - distanceFromScreen);
-                break;                
-            default:
-                    positionX = 0;
-                    positionY = 0;
-        }
-        
-        // return the new point
-        return new Point(positionX, positionY);
-    }
+	public Color getBorderColor() {
+		return borderColor;
+	}
 
-    /**
-     * Gets the screen resolution.
-     * @return The screen resolution.
-     */
-    private Rectangle getScreenResolution() {
-        
-        // get the environment
-        GraphicsEnvironment environment = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        
-        // return the bounds
-        return environment.getMaximumWindowBounds();
-    }
-   
+	public void setBorderColor(Color borderColor) {
+		this.borderColor = borderColor;
+	}
+
+	public int getBorderThickness() {
+		return borderThickness;
+	}
+
+	public void setBorderThickness(int borderThickness) {
+		this.borderThickness = borderThickness;
+	}
+
+	public Color getDescriptionColor() {
+		return descriptionColor;
+	}
+
+	public void setDescriptionColor(Color descriptionColor) {
+		this.descriptionColor = descriptionColor;
+	}
+
+	public Font getDescriptionFont() {
+		return descriptionFont;
+	}
+
+	public void setDescriptionFont(Font descriptionFont) {
+		this.descriptionFont = descriptionFont;
+	}
+
+	public ImageIcon getIcon() {
+		return icon;
+	}
+
+	public void setIcon(ImageIcon icon) {
+		this.icon = icon;
+	}
+
+	public Color getTitleColor() {
+		return titleColor;
+	}
+
+	public void setTitleColor(Color titleColor) {
+		this.titleColor = titleColor;
+	}
+
+	public Font getTitleFont() {
+		return titleFont;
+	}
+
+	public void setTitleFont(Font titleFont) {
+		this.titleFont = titleFont;
+	}
+
+	/**
+	 * Calculates the initial coordinates.
+	 * 
+	 * @return A point.
+	 */
+	protected Point getInitialCoordinates() {
+
+		// the points
+		int positionX;
+		int positionY;
+
+		// check the option
+		switch (achievementPosition) {
+		case BOTTOM_CENTER:
+			positionX = (int) ((screenWidth / 2) - (windowWidth / 2));
+			positionY = (int) (screenHeight + windowHeight);
+			break;
+		case TOP_CENTER:
+			positionX = (int) ((screenWidth / 2) - (windowWidth / 2));
+			positionY = (int) (-windowHeight);
+			break;
+		case TOP_LEFT:
+			positionX = (int) (-windowWidth);
+			positionY = (int) (-windowHeight);
+			break;
+		case BOTTOM_LEFT:
+			positionX = (int) (-windowWidth);
+			positionY = (int) (screenHeight);
+			break;
+		case TOP_RIGHT:
+			positionX = (int) (screenWidth);
+			positionY = (int) (-windowHeight);
+			break;
+		case BOTTOM_RIGHT:
+			positionX = (int) (screenWidth);
+			positionY = (int) (screenHeight + windowHeight);
+			break;
+		default:
+			positionX = 0;
+			positionY = 0;
+		}
+
+		// return new point
+		return new Point(positionX, positionY);
+	}
+
+	/**
+	 * Calculates the final coordinates.
+	 * 
+	 * @return The point.
+	 */
+	protected Point getFinalCoordinates() {
+
+		// the points
+		int positionX;
+		int positionY;
+
+		// check the option
+		switch (achievementPosition) {
+		case BOTTOM_CENTER:
+			positionX = (int) ((screenWidth / 2) - (windowWidth / 2));
+			positionY = (int) ((screenHeight - windowHeight) - distanceFromScreen);
+			break;
+		case TOP_CENTER:
+			positionX = (int) ((screenWidth / 2) - (windowWidth / 2));
+			positionY = (int) (distanceFromScreen);
+			break;
+		case TOP_LEFT:
+			positionX = (int) (distanceFromScreen);
+			positionY = (int) (distanceFromScreen);
+			break;
+		case BOTTOM_LEFT:
+			positionX = (int) (distanceFromScreen);
+			positionY = (int) ((screenHeight - windowHeight) - distanceFromScreen);
+			break;
+		case TOP_RIGHT:
+			positionX = (int) ((screenWidth - windowWidth) - distanceFromScreen);
+			positionY = (int) (distanceFromScreen);
+			break;
+		case BOTTOM_RIGHT:
+			positionX = (int) ((screenWidth - windowWidth) - distanceFromScreen);
+			positionY = (int) ((screenHeight - windowHeight) - distanceFromScreen);
+			break;
+		default:
+			positionX = 0;
+			positionY = 0;
+		}
+
+		// return the new point
+		return new Point(positionX, positionY);
+	}
+
+	/**
+	 * Gets the screen resolution.
+	 * 
+	 * @return The screen resolution.
+	 */
+	private Rectangle getScreenResolution() {
+
+		// get the environment
+		GraphicsEnvironment environment = GraphicsEnvironment
+				.getLocalGraphicsEnvironment();
+
+		// return the bounds
+		return environment.getMaximumWindowBounds();
+	}
+
 }
