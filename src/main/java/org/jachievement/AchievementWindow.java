@@ -49,145 +49,164 @@
 package org.jachievement;
 
 // needed imports
-import java.awt.Dialog;
 import java.awt.Font;
 import java.awt.Point;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JWindow;
 import javax.swing.border.MatteBorder;
+
 import net.miginfocom.swing.MigLayout;
 
 /**
  * Implements the achievement window.
- *
+ * 
  * @author Paulo Roberto Massa Cereda
  * @version 2.0
  * @since 2.0
  */
+@SuppressWarnings("serial")
 public class AchievementWindow extends JWindow {
 
-    // the configuration
-    private AchievementConfig config;
-    // the title
-    String title;
-    // the description
-    String description;
+	// the configuration
+	private AchievementConfig config;
+	// the title
+	String title;
+	// the description
+	String description;
 
-    /**
-     * Constructor.
-     * @param theTitle The achievement title.
-     * @param theDescription The achievement description.
-     * @param theConfig The configuration.
-     */
-    public AchievementWindow(String theTitle, String theDescription, AchievementConfig theConfig) {
-        
-        // instantiate superclass
-        super();
-        
-        // set the attributes
-        title = theTitle;
-        description = theDescription;
-        config = theConfig;
+	/**
+	 * Constructor.
+	 * 
+	 * @param theTitle
+	 *            The achievement title.
+	 * @param theDescription
+	 *            The achievement description.
+	 * @param theConfig
+	 *            The configuration.
+	 */
+	public AchievementWindow(String theTitle, String theDescription,
+			AchievementConfig theConfig) {
 
-        // create a new border
-        getRootPane().setBorder(new MatteBorder(config.getBorderThickness(), config.getBorderThickness(), config.getBorderThickness(), config.getBorderThickness(), config.getBorderColor()));
-        
-        // set the layout
-        setLayout(new MigLayout());
+		// instantiate superclass
+		super();
 
-        // set the background color
-        getRootPane().setBackground(config.getBackgroundColor());
+		// set the attributes
+		title = theTitle;
+		description = theDescription;
+		config = theConfig;
 
-        // if there's a background image
-        if (config.getBackgroundImage() != null) {
-            
-            // create a label with that image
-            JLabel labelBackground = new JLabel(config.getBackgroundImage());
-            
-            // set the bounds
-            labelBackground.setBounds(0, 0, config.getBackgroundImage().getIconWidth(), config.getBackgroundImage().getIconHeight());
-            
-            // add it
-            getLayeredPane().add(labelBackground, new Integer(Integer.MIN_VALUE));
-        }
+		// create a new border
+		getRootPane().setBorder(
+				new MatteBorder(config.getBorderThickness(), config
+						.getBorderThickness(), config.getBorderThickness(),
+						config.getBorderThickness(), config.getBorderColor()));
 
-        // create a new panel
-        JPanel contentPanel = new JPanel();
-        contentPanel.setOpaque(false);
+		// set the layout
+		setLayout(new MigLayout());
 
-        // set the new layout
-        contentPanel.setLayout(new MigLayout("ins dialog, gapx 15, hidemode 0", "15[][grow]15", "15[][grow]15"));
+		// set the background color
+		getRootPane().setBackground(config.getBackgroundColor());
 
-        // create a new icon
-        JLabel icon = new JLabel(config.getIcon());
-        contentPanel.add(icon, "cell 0 0 0 2, align center");
+		// if there's a background image
+		if (config.getBackgroundImage() != null) {
 
-        // create the achievement title
-        String strTitle = String.format("<html><div style=\"width:%dpx;\">%s</div><html>", 200, title);
-        JLabel lblTitle = new JLabel("<html>" + strTitle + "</html>");
-        
-        // if there's no font
-        if (config.getTitleFont() == null) {
-            
-            // set default
-            lblTitle.setFont(lblTitle.getFont().deriveFont(Font.BOLD, 14f));
-            
-        } else {
-            
-            // set the one from config
-            lblTitle.setFont(config.getTitleFont());
-        }
-        
-        // set the font color
-        lblTitle.setForeground(config.getTitleColor());
+			// create a label with that image
+			JLabel labelBackground = new JLabel(config.getBackgroundImage());
 
-        // create the achievement description
-        String strDescription = String.format("<html><div style=\"width:%dpx;\">%s</div><html>", 200, description);
-        JLabel lblDescription = new JLabel(strDescription);
+			// set the bounds
+			labelBackground.setBounds(0, 0, config.getBackgroundImage()
+					.getIconWidth(), config.getBackgroundImage()
+					.getIconHeight());
 
-        // if there's font
-        if (config.getDescriptionFont() != null) {
-            
-            // set it
-            lblDescription.setFont(config.getDescriptionFont());
-        }
+			// add it
+			getLayeredPane().add(labelBackground,
+					new Integer(Integer.MIN_VALUE));
+		}
 
-        // set the description color
-        lblDescription.setForeground(config.getDescriptionColor());
+		// create a new panel
+		JPanel contentPanel = new JPanel();
+		contentPanel.setOpaque(false);
 
-        // add both title and description
-        contentPanel.add(lblTitle, "cell 1 0, aligny center");
-        contentPanel.add(lblDescription, "cell 1 1, aligny center, growy, width 260!");
+		// set the new layout
+		contentPanel.setLayout(new MigLayout("ins dialog, gapx 15, hidemode 0",
+				"15[][grow]15", "15[][grow]15"));
 
-        // set content to the window
-        setContentPane(contentPanel);
+		// create a new icon
+		JLabel icon = new JLabel(config.getIcon());
+		contentPanel.add(icon, "cell 0 0 0 2, align center");
 
-        
-        // set the windows always on top
-        setAlwaysOnTop(true);
-        
-        // pack everything
-        pack();
-        
-        // put the window away
-        setBounds(-getWidth(), -getHeight(), getWidth(), getHeight());
-    }
+		// create the achievement title
+		String strTitle = String.format(
+				"<html><div style=\"width:%dpx;\">%s</div><html>", 200, title);
+		JLabel lblTitle = new JLabel("<html>" + strTitle + "</html>");
 
-    /**
-     * Sets position on screen.
-     * @param p The new position.
-     */
-    public void setPosition(Point p) {
-        
-        // if not visible
-        if (!isVisible()) {
-            
-            // show window
-            setVisible(true);
-        }
-        
-        // set new location
-        setBounds(p.x, p.y, getWidth(), getHeight());
-    }
+		// if there's no font
+		if (config.getTitleFont() == null) {
+
+			// set default
+			lblTitle.setFont(lblTitle.getFont().deriveFont(Font.BOLD, 14f));
+
+		} else {
+
+			// set the one from config
+			lblTitle.setFont(config.getTitleFont());
+		}
+
+		// set the font color
+		lblTitle.setForeground(config.getTitleColor());
+
+		// create the achievement description
+		String strDescription = String.format(
+				"<html><div style=\"width:%dpx;\">%s</div><html>", 200,
+				description);
+		JLabel lblDescription = new JLabel(strDescription);
+
+		// if there's font
+		if (config.getDescriptionFont() != null) {
+
+			// set it
+			lblDescription.setFont(config.getDescriptionFont());
+		}
+
+		// set the description color
+		lblDescription.setForeground(config.getDescriptionColor());
+
+		// add both title and description
+		contentPanel.add(lblTitle, "cell 1 0, aligny center");
+		contentPanel.add(lblDescription,
+				"cell 1 1, aligny center, growy, width 260!");
+
+		// set content to the window
+		setContentPane(contentPanel);
+
+		// set the windows always on top
+		setAlwaysOnTop(true);
+
+		// pack everything
+		pack();
+
+		// put the window away
+		setBounds(-getWidth(), -getHeight(), getWidth(), getHeight());
+	}
+
+	/**
+	 * Sets position on screen.
+	 * 
+	 * @param p
+	 *            The new position.
+	 */
+	public void setPosition(Point p) {
+
+		// if not visible
+		if (!isVisible()) {
+
+			// show window
+			setVisible(true);
+		}
+
+		// set new location
+		setBounds(p.x, p.y, getWidth(), getHeight());
+	}
 }

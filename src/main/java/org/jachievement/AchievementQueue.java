@@ -59,84 +59,87 @@ import javax.swing.Timer;
 
 /**
  * Implements an achievement queue.
+ * 
  * @author Paulo Roberto Massa Cereda
  * @version 2.0
  * @since 2.0
  */
 public class AchievementQueue implements ActionListener {
 
-    // a queue, a timer and a notification
-    private Queue queue;
-    private Timer timer;
-    private Achievement current;
+	// a queue, a timer and a notification
+	private Queue<Achievement> queue;
+	private Timer timer;
+	private Achievement current;
 
-    /**
-    * Constructor.
-    */
-    public AchievementQueue() {
-        
-        // set everything
-        queue = new LinkedList();
-        timer = new Timer(50, this);
-        current = null;
-    }
+	/**
+	 * Constructor.
+	 */
+	public AchievementQueue() {
 
-    /**
-     * Adds the achievement to the queue.
-     * @param achievement The achievement.
-     */
-    public synchronized void add(Achievement achievement) {
-        
-        // check if queue is empty and there is no
-        // current notification
-        if (queue.isEmpty() && (current == null)) {
+		// set everything
+		queue = new LinkedList<Achievement>();
+		timer = new Timer(50, this);
+		current = null;
+	}
 
-            // show notification
-            current = achievement;
-            current.show();
-        }
-        else {
-            
-            // there are other notifications, so we need to wait
-            queue.offer(achievement);
+	/**
+	 * Adds the achievement to the queue.
+	 * 
+	 * @param achievement
+	 *            The achievement.
+	 */
+	public synchronized void add(Achievement achievement) {
 
-            // check if timer is not running
-            if (timer.isRunning() == false) {
+		// check if queue is empty and there is no
+		// current notification
+		if (queue.isEmpty() && (current == null)) {
 
-                // start the timer
-                timer.start();
-            }
-        }
-    }
+			// show notification
+			current = achievement;
+			current.show();
+		} else {
 
-    /**
-     * Implements the listener for the queue.
-     * @param e The event.
-     */
-    public void actionPerformed(ActionEvent e) {
+			// there are other notifications, so we need to wait
+			queue.offer(achievement);
 
-        // there is a current notification going on
-        if (current != null) {
+			// check if timer is not running
+			if (timer.isRunning() == false) {
 
-            // check if queue is not empty and there is no
-            // notification running
-            if ((!queue.isEmpty()) && (!current.isRunning())) {
+				// start the timer
+				timer.start();
+			}
+		}
+	}
 
-                // poll a notification from the queue
-                current = (Achievement) queue.poll();
+	/**
+	 * Implements the listener for the queue.
+	 * 
+	 * @param e
+	 *            The event.
+	 */
+	public void actionPerformed(ActionEvent e) {
 
-                // animate
-                current.show();
-            }
-            else {
+		// there is a current notification going on
+		if (current != null) {
 
-                // if the queue is empty
-                if (queue.isEmpty()) {
+			// check if queue is not empty and there is no
+			// notification running
+			if ((!queue.isEmpty()) && (!current.isRunning())) {
 
-                    // stop the timer
-                    timer.stop();
-                }
-            }
-        }
-    }
+				// poll a notification from the queue
+				current = (Achievement) queue.poll();
+
+				// animate
+				current.show();
+			} else {
+
+				// if the queue is empty
+				if (queue.isEmpty()) {
+
+					// stop the timer
+					timer.stop();
+				}
+			}
+		}
+	}
 }
