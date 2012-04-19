@@ -12,6 +12,13 @@ Sources
 All the source code can be found on github: https://github.com/cereda/jachievement
 Don't hesitate to fork !
 
+Thanks
+------
+
+[@paulocereda](http://www.twitter.com/paulocereda) who created this awesome library: http://jachievement.sourceforge.net/
+
+And also to these two libraries used in the project: http://www.pushing-pixels.org/category/trident and http://www.miglayout.com/
+
 Documentation
 -------------
 
