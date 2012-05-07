@@ -99,8 +99,12 @@ public class AchievementConfig {
 	private int windowHeight;
 
 	// configuration related to sounds
+
 	/**
 	 * Allows to activate the sound notifications
+	 * 
+	 * @author Antoine Neveux
+	 * @since 2.1
 	 */
 	private boolean audioEnabled;
 	/**
@@ -116,6 +120,9 @@ public class AchievementConfig {
 	 *       {@link AudioSystem#getAudioInputStream(java.io.File)} or
 	 *       {@link AudioSystem#getAudioInputStream(java.net.URL)} or also
 	 *       {@link AudioSystem#getAudioInputStream(java.io.InputStream)}
+	 * 
+	 * @author Antoine Neveux
+	 * @since 2.1
 	 */
 	private AudioInputStream audioInputStream;
 
