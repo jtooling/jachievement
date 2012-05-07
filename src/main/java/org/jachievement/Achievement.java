@@ -144,7 +144,7 @@ public class Achievement {
 		// configure the intro animation, when the window enters
 		timelineIntro.addPropertyToInterpolate("position",
 				config.getInitialCoordinates(), config.getFinalCoordinates());
-		timelineIntro.addCallback(new SimpleCallback(timelineStay));
+		timelineIntro.addCallback(new AudioCallback(this, timelineStay));
 		timelineIntro.setDuration(config.getInDuration());
 
 		// configure the time the window should wait in the screen
@@ -163,16 +163,6 @@ public class Achievement {
 	 */
 	protected void show() {
 		timelineIntro.play();
-		if (this.config.isAudioEnabled()) {
-			AchievementSound sound = new AchievementSound(
-					this.config.getAudioInputStream());
-			sound.start();
-			try {
-				sound.join();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
 	}
 
 	/**
@@ -206,6 +196,17 @@ public class Achievement {
 			// dispose it
 			window.dispose();
 		}
+	}
+
+	/**
+	 * Allows to get the configuration used by the achievement
+	 * 
+	 * @author Antoine Neveux
+	 * @since 2.1
+	 * @return the actual {@link #config} used by the current achievement
+	 */
+	public AchievementConfig getConfig() {
+		return this.config;
 	}
 
 }
