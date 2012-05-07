@@ -55,13 +55,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import java.util.Queue;
+
 import javax.swing.Timer;
 
 /**
  * Implements an achievement queue.
  * 
  * @author Paulo Roberto Massa Cereda
- * @version 2.0
+ * @version 2.1
  * @since 2.0
  */
 public class AchievementQueue implements ActionListener {
@@ -78,7 +79,7 @@ public class AchievementQueue implements ActionListener {
 
 		// set everything
 		queue = new LinkedList<Achievement>();
-		timer = new Timer(50, this);
+		timer = new Timer(100, this);
 		current = null;
 	}
 
@@ -117,8 +118,8 @@ public class AchievementQueue implements ActionListener {
 	 * @param e
 	 *            The event.
 	 */
-	public void actionPerformed(ActionEvent e) {
-
+	public synchronized void actionPerformed(ActionEvent e) {
+		notifyAll();
 		// there is a current notification going on
 		if (current != null) {
 
@@ -141,5 +142,32 @@ public class AchievementQueue implements ActionListener {
 				}
 			}
 		}
+	}
+
+	/**
+	 * This method works like the join() method on a thread. It allows to wait
+	 * for the whole queue to be processed by keeping its thread alive. You can
+	 * use it easily by calling it after adding elements in the queue:
+	 * 
+	 * @code AchievementQueue q = new AchievementQueue(); q.add(new
+	 *       Achievement("title","description"); q.add(new
+	 *       Achievement("title","description"); q.add(new
+	 *       Achievement("title","description"); q.join();
+	 * @code
+	 * 
+	 *       Following this example, the 3 achievements will be displayed one by
+	 *       one, and the program will end properly at the end of the third
+	 *       achievement. Without the {@link #join()} method, the programs ends
+	 *       directly after the third add() execution, without displaying
+	 *       properly the achievements. Have a look at the unit tests and remove
+	 *       the {@link #join()} call to see the difference.
+	 * 
+	 * @author Antoine Neveux
+	 * @since 2.1
+	 */
+	public synchronized void join() throws InterruptedException {
+		do {
+			wait(100);
+		} while ((current != null && current.isRunning()) || !queue.isEmpty());
 	}
 }
