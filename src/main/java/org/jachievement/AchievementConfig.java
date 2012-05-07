@@ -51,14 +51,21 @@
 package org.jachievement;
 
 // needed packages
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.GraphicsEnvironment;
+import java.awt.Point;
+import java.awt.Rectangle;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
 import javax.swing.ImageIcon;
 
 /**
  * Holds the achievement configuration.
  * 
  * @author Paulo Roberto Massa Cereda
- * @version 2.0
+ * @version 2.1
  * @since 2.0
  */
 public class AchievementConfig {
@@ -90,6 +97,27 @@ public class AchievementConfig {
 	// the window size
 	private int windowWidth;
 	private int windowHeight;
+
+	// configuration related to sounds
+	/**
+	 * Allows to activate the sound notifications
+	 */
+	private boolean audioEnabled;
+	/**
+	 * The {@link AudioInputStream} to use for the sound notification. You can
+	 * create it using
+	 * 
+	 * @code AudioSystem.getAudioInputStream(inputStream);
+	 *       AudioSystem.getAudioInputStream(file);
+	 *       AudioSystem.getAudioInputStream(url);
+	 * @code
+	 * 
+	 *       Have a look at
+	 *       {@link AudioSystem#getAudioInputStream(java.io.File)} or
+	 *       {@link AudioSystem#getAudioInputStream(java.net.URL)} or also
+	 *       {@link AudioSystem#getAudioInputStream(java.io.InputStream)}
+	 */
+	private AudioInputStream audioInputStream;
 
 	// Getters and setters
 
@@ -133,6 +161,22 @@ public class AchievementConfig {
 		this.outDuration = outDuration;
 	}
 
+	public boolean isAudioEnabled() {
+		return audioEnabled;
+	}
+
+	public void setAudioEnabled(boolean audioEnabled) {
+		this.audioEnabled = audioEnabled;
+	}
+
+	public AudioInputStream getAudioInputStream() {
+		return audioInputStream;
+	}
+
+	public void setAudioInputStream(AudioInputStream audioInputStream) {
+		this.audioInputStream = audioInputStream;
+	}
+
 	/**
 	 * Default constructor.
 	 */
@@ -163,6 +207,14 @@ public class AchievementConfig {
 			screenHeight = rect.getHeight();
 		}
 
+		audioEnabled = true;
+		try {
+			audioInputStream = AudioSystem.getAudioInputStream(getClass()
+					.getResourceAsStream("/notify.wav"));
+		} catch (Exception e) {
+			audioEnabled = false;
+			e.printStackTrace();
+		}
 	}
 
 	// Getters and setters

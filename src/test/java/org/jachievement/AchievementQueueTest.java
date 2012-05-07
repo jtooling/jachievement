@@ -2,7 +2,7 @@ package org.jachievement;
 
 import org.junit.Test;
 
-public class JAchievementTest {
+public class AchievementQueueTest {
 
 	@Test
 	public void showAchievementTest() throws Exception {
