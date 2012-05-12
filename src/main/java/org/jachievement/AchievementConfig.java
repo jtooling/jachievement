@@ -40,6 +40,7 @@ import java.awt.Font;
 import java.awt.GraphicsEnvironment;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.io.BufferedInputStream;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -200,8 +201,10 @@ public class AchievementConfig {
 
 		audioEnabled = true;
 		try {
-			audioInputStream = AudioSystem.getAudioInputStream(getClass()
-					.getResourceAsStream("/notify.wav"));
+			audioInputStream = AudioSystem.getAudioInputStream(
+                            new BufferedInputStream(
+                                getClass().getResourceAsStream("/notify.wav"))
+                            );
 		} catch (Exception e) {
 			audioEnabled = false;
 			e.printStackTrace();

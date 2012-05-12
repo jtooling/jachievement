@@ -34,6 +34,7 @@
 // package definition
 package org.jachievement;
 
+import java.io.BufferedInputStream;
 import javax.sound.sampled.AudioSystem;
 
 import junit.framework.Assert;
@@ -60,8 +61,10 @@ public class AchievementSoundTest {
 	public void testPlay() {
 		try {
 			AchievementSound sound = new AchievementSound(
-					AudioSystem.getAudioInputStream(getClass()
-							.getResourceAsStream("/notify.wav")));
+                                AudioSystem.getAudioInputStream(
+                                    new BufferedInputStream(
+                                        getClass().getResourceAsStream("/notify.wav")
+                                    )));
 			sound.start();
 			sound.join();
 		} catch (Exception e) {
