@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Jachievement by cereda</title>
+    <title>Jachievement by jtooling</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
@@ -19,150 +19,43 @@
       <header>
         <h1>Jachievement</h1>
         <p>An achievement notification library</p>
-        <p class="view"><a href="https://github.com/cereda/jachievement">View the Project on GitHub <small>cereda/jachievement</small></a></p>
+        <p class="view"><a href="https://github.com/jtooling/jachievement">View the Project on GitHub <small>jtooling/jachievement</small></a></p>
         <ul>
-          <li><a href="https://github.com/cereda/jachievement/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/cereda/jachievement/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/cereda/jachievement">View On <strong>GitHub</strong></a></li>
+          <li><a href="https://github.com/jtooling/jachievement/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/jtooling/jachievement/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/jtooling/jachievement">View On <strong>GitHub</strong></a></li>
         </ul>
       </header>
       <section>
-        <h1>Welcome!</h1>
+        <h1>JAchievement 2.1</h1>
+
+<h2>About</h2>
 
 <p><em>JAchievement</em> is a small library written in Java that provides achievement notification features to any Java application. In short, this library provides an easy way for you to display achievements within an application.</p>
 
-<h1>The authors</h1>
+<p><img src="http://jachievement.sourceforge.net/images/screen02.png" alt="Achievement 1"></p>
+
+<h2>The authors</h2>
 
 <p><em>JAchievement</em> is maintained by Antoine Neveux  <img src="http://jachievement.sourceforge.net/images/france.png" alt="France">   and Paulo Roberto Massa Cereda  <img src="http://jachievement.sourceforge.net/images/brazil.png" alt="Brazil">.</p>
 
-<h1>License</h1>
+<h2>License</h2>
 
-<p>The library is licensed under the <a href="http://www.opensource.org/licenses/bsd-license.php">New BSD License</a>. The New BSD License has been verified as a GPL-compatible free software license by the <a href="http://www.fsf.org/">Free Software Foundation</a>, and has been vetted as an open source license by the <a href="http://www.opensource.org/">Open Source Initiative</a>.</p>
+<p>This library is licensed under the <a href="http://www.opensource.org/licenses/bsd-license.php">New BSD License</a>.</p>
 
-<p>The default achievement icon is provided by <a href="http://www.wpzoom.com/">WPZOOM</a> and licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share Alike 3.0 Unported License</a>.</p>
+<h2>Documentation</h2>
 
-<h1>Usage</h1>
+<p>All the technical documentation (destinated to potential contributors) can be found directly in the source code: there's quite a lot of JavaDoc, so understanding the source code shouldn't be a problem. From an user point of view, all the documentation can be found <a href="http://cereda.github.com/jachievement/">on the JAchievement dedicated website</a>. Some advanced documentation can also be found on <a href="https://github.com/cereda/jachievement/wiki">our GitHub Wiki</a>.</p>
 
-<p><em>JAchievement</em> relies on a few lines of code. There are two dependencies, <a href="http://kenai.com/projects/trident">Trident</a> and <a href="http://www.migcalendar.com/miglayout/">MigLayout</a> libraries, so please add them to your classpath. And of course, don't forget to include the <em>JAchievement</em> library as well. We also provide a special <code>jar</code> file with "batteries-included", that is, with all dependencies packed together. The minimum working example is presented as follows:</p>
+<h2>Downloads</h2>
 
-<div class="highlight">
-<pre><span class="n">Achievement</span> <span class="n">achievement</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Achievement</span><span class="o">(</span><span class="s">"Achievement unlocked"</span><span class="o">,</span> <span class="s">"My first Java code."</span><span class="o">);</span>
-<span class="n">AchievementQueue</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AchievementQueue</span><span class="o">();</span>
-<span class="n">queue</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">achievement</span><span class="o">);</span>
-</pre>
-</div>
+<p>The <code>.jar</code> files can be found on <a href="https://github.com/cereda/jachievement/downloads">our GitHub downloads page</a>. One of the <code>jar</code> contains all the dependencies, so it can be used without anything else, while the other one contains only the <em>JAchievement</em> classes, so you'll need to add the dependencies manually to your application's classpath. And you can also get a zip file of the source code <a href="https://github.com/cereda/jachievement/zipball/master">from the GitHub ZipBall feature</a>.</p>
 
+<h2>Contribute</h2>
 
-<p>That's it. In line 1, we created a new <code>Achievement</code>, in line 2 we created a new <code>AchievementQueue</code> and finally in line 3 we added the newly created object to the queue. By running it, we get the following output:</p>
+<p>We'd be really happy if you'd like to fork <em>JAchievement</em>. Feel free to submit some <a href="https://github.com/cereda/jachievement/pulls">pull requests</a>. And don't hesitate to submit <a href="https://github.com/cereda/jachievement/issues">issues</a> too, if you have some comments about our work!</p>
 
-<p><img src="http://jachievement.sourceforge.net/images/screen01.png" alt="Achievement 1"></p>
-
-<p>The achievement is displayed in the top left corner of the screen. If you add</p>
-
-<div class="highlight">
-<pre><span class="n">UIManager</span><span class="o">.</span><span class="na">setLookAndFeel</span><span class="o">(</span><span class="n">UIManager</span><span class="o">.</span><span class="na">getSystemLookAndFeelClassName</span><span class="o">());</span>
-</pre>
-</div>
-
-
-<p>in your application, the achievement notification will use the UI elements from the system look and feel. If you are in Windows, your achievement will look like:</p>
-
-<p><img src="http://jachievement.sourceforge.net/images/screen02.png" alt="Achievement 2"></p>
-
-<p>There are two constructors available for <code>Achievement</code>:</p>
-
-<div class="highlight">
-<pre><span class="kd">public</span> <span class="nf">Achievement</span><span class="o">(</span><span class="n">String</span> <span class="n">title</span><span class="o">,</span> <span class="n">String</span> <span class="n">description</span><span class="o">)</span>
-<span class="kd">public</span> <span class="nf">Achievement</span><span class="o">(</span><span class="n">String</span> <span class="n">title</span><span class="o">,</span> <span class="n">String</span> <span class="n">description</span><span class="o">,</span> <span class="n">AchievementConfig</span> <span class="n">config</span><span class="o">)</span>
-</pre>
-</div>
-
-
-<p>Now let's take a look in the constructors arguments: <code>title</code> is the title of the achievement, that is, the highlighted text in the window. The <code>description</code> argument refers to the body text, the one right below the title. An optional <code>config</code> parameter can be used to configure the achievement behaviour, such as colours, fonts and icons.</p>
-
-<p>For a more complex example, consider the following code:</p>
-
-<div class="highlight">
-<pre><span class="n">UIManager</span><span class="o">.</span><span class="na">setLookAndFeel</span><span class="o">(</span><span class="n">UIManager</span><span class="o">.</span><span class="na">getSystemLookAndFeelClassName</span><span class="o">());</span>
-
-<span class="n">AchievementConfig</span> <span class="n">config</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AchievementConfig</span><span class="o">();</span>
-<span class="n">config</span><span class="o">.</span><span class="na">setBackgroundColor</span><span class="o">(</span><span class="n">Color</span><span class="o">.</span><span class="na">CYAN</span><span class="o">);</span>
-<span class="n">config</span><span class="o">.</span><span class="na">setTitleColor</span><span class="o">(</span><span class="n">Color</span><span class="o">.</span><span class="na">BLUE</span><span class="o">);</span>
-<span class="n">config</span><span class="o">.</span><span class="na">setDescriptionColor</span><span class="o">(</span><span class="n">Color</span><span class="o">.</span><span class="na">BLUE</span><span class="o">);</span>
-<span class="n">config</span><span class="o">.</span><span class="na">setBorderColor</span><span class="o">(</span><span class="n">Color</span><span class="o">.</span><span class="na">BLUE</span><span class="o">);</span>
-
-<span class="n">Achievement</span> <span class="n">achievement</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Achievement</span><span class="o">(</span><span class="s">"Achievement unlocked"</span><span class="o">,</span> <span class="s">"My second Java code."</span><span class="o">,</span> <span class="n">config</span><span class="o">);</span>
-<span class="n">AchievementQueue</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AchievementQueue</span><span class="o">();</span>
-<span class="n">queue</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">achievement</span><span class="o">);</span>
-</pre>
-</div>
-
-
-<p>The code is self-explanatory. We created an instance of <code>AchievementConfig</code> and called some methods to set how our new achievement should look. The output is presented as follows:</p>
-
-<p><img src="http://jachievement.sourceforge.net/images/screen03.png" alt="Achievement 3"></p>
-
-<p>Let's take a look at the complete list of setters from <code>AchievementConfig</code>:</p>
-
-<div class="highlight">
-<pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">setAchievementPosition</span><span class="o">(</span><span class="n">AchievementPosition</span> <span class="n">achievementPosition</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDistanceFromScreen</span><span class="o">(</span><span class="kt">int</span> <span class="n">distanceFromScreen</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDuration</span><span class="o">(</span><span class="kt">long</span> <span class="n">milliseconds</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setInDuration</span><span class="o">(</span><span class="kt">long</span> <span class="n">milliseconds</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setOutDuration</span><span class="o">(</span><span class="kt">long</span> <span class="n">milliseconds</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setBackgroundColor</span><span class="o">(</span><span class="n">Color</span> <span class="n">backgroundColor</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setBackgroundImage</span><span class="o">(</span><span class="n">ImageIcon</span> <span class="n">backgroundImage</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setBorderColor</span><span class="o">(</span><span class="n">Color</span> <span class="n">borderColor</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setBorderThickness</span><span class="o">(</span><span class="kt">int</span> <span class="n">borderThickness</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDescriptionColor</span><span class="o">(</span><span class="n">Color</span> <span class="n">descriptionColor</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDescriptionFont</span><span class="o">(</span><span class="n">Font</span> <span class="n">descriptionFont</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setIcon</span><span class="o">(</span><span class="n">ImageIcon</span> <span class="n">icon</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setTitleColor</span><span class="o">(</span><span class="n">Color</span> <span class="n">titleColor</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setTitleFont</span><span class="o">(</span><span class="n">Font</span> <span class="n">titleFont</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setAudioEnabled</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">audioEnabled</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setAudioInputStream</span><span class="o">(</span><span class="n">AudioInputStream</span> <span class="n">audioInputStream</span><span class="o">)</span>
-</pre>
-</div>
-
-
-<p>We should also mention that you can define the position of the achievement on screen by using one of the values from the <code>AchievementPosition</code> enumeration:</p>
-
-<div class="highlight">
-<pre><span class="kd">public</span> <span class="kd">enum</span> <span class="n">AchievementPosition</span> <span class="o">{</span>
-    <span class="n">TOP_CENTER</span><span class="o">,</span>
-    <span class="n">TOP_LEFT</span><span class="o">,</span>
-    <span class="n">TOP_RIGHT</span><span class="o">,</span>
-    <span class="n">BOTTOM_CENTER</span><span class="o">,</span>
-    <span class="n">BOTTOM_LEFT</span><span class="o">,</span>
-    <span class="n">BOTTOM_RIGHT</span>
-<span class="o">}</span>
-</pre>
-</div>
-
-
-<p>From version 1.0 of <em>JAchievement</em> on, multiple achievement notifications are provided by the <code>AchievementQueue</code> manager class, which ensures that only a single achievement notification is displayed at a time.</p>
-
-<p>The <code>AchievementQueue</code> manager class handles the calls for methods of the <code>Achievement</code> class. After adding an achievement to the queue, there is no need of calling any methods of the achievement itself.</p>
-
-<p>To add an achievement to the queue, it's just a matter of calling the proper method:</p>
-
-<div class="highlight">
-<pre><span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">Achievement</span> <span class="n">achievement</span><span class="o">)</span>
-</pre>
-</div>
-
-
-<p>If there is no achievement notifications in the queue, the achievement notification is displayed right after the call of the <code>add</code> method. Otherwise, it will be queued until there is no achievement notifications currently in display. Please note this is a simple <em>first in first out queue</em>, so no priorities are estabilished when adding achievement notifications.</p>
-
-<h1>Download</h1>
-
-<p>The <code>.jar</code> files can be found on our <a href="https://github.com/cereda/jachievement/downloads">GitHub downloads page</a>. One of the <code>.jar</code> contains all the dependencies, so it can be used without anything else, while the other one contains only the <em>JAchievement</em> classes, so you'll need to add the dependencies manually to your application's classpath. And you can also get a <code>.zip</code> file of the source code from <a href="https://github.com/cereda/jachievement/zipball/master">GitHub ZipBall feature</a>.</p>
-
-<h1>Contribute</h1>
-
-<p>We'd be really happy if you'd like to fork <em>JAchievement</em>. Feel free to submit some pull requests. And don't hesitate to submit issues too if you have some comments about our work!</p>
-
-<h1>Contact</h1>
+<h2>Contact us</h2>
 
 <p>You can contact us through our Twitter accounts, <a href="http://www.twitter.com/antoineneveux">@antoineneveux</a> and <a href="http://www.twitter.com/paulocereda">@paulocereda</a>, but of course there are other ways of reaching us:</p>
 
@@ -171,16 +64,16 @@
 </li>
 <li>Paulo Roberto Massa Cereda  <a href="http://cereda.users.sourceforge.net/"><img src="http://jachievement.sourceforge.net/images/email.png" alt="Homepage"></a>  <a href="http://www.twitter.com/paulocereda"><img src="http://jachievement.sourceforge.net/images/twitter.png" alt="Twitter"></a>
 </li>
-</ul><h1>Special thanks</h1>
+</ul><h2>Special thanks</h2>
 
 <p>To these two libraries used in the project: <a href="http://www.pushing-pixels.org/category/trident">Trident</a> and <a href="http://www.miglayout.com/">MigLayout</a>.</p>
       </section>
     </div>
     <footer>
-      <p>Project maintained by <a href="https://github.com/cereda">cereda</a></p>
+      <p>Project maintained by <a href="https://github.com/jtooling">jtooling</a></p>
       <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
     </footer>
-    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     
   </body>
 </html>
