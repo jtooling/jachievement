@@ -126,7 +126,7 @@ public class AchievementWindow extends JWindow {
 		// create the achievement title
 		String strTitle = String.format(
 				"<html><div style=\"width:%dpx;\">%s</div><html>", 200, title);
-		JLabel lblTitle = new JLabel("<html>" + strTitle + "</html>");
+		JLabel lblTitle = new JLabel(strTitle); 
 
 		// if there's no font
 		if (config.getTitleFont() == null) {
